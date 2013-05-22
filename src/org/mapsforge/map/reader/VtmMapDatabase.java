@@ -24,7 +24,6 @@ import java.util.logging.Logger;
 import org.mapsforge.core.model.Tile;
 import org.mapsforge.map.reader.header.FileOpenResult;
 import org.mapsforge.map.reader.header.MapFileInfo;
-import org.mapsforge.map.reader.header.MapInfo;
 
 /**
  *
@@ -32,9 +31,6 @@ import org.mapsforge.map.reader.header.MapInfo;
  */
 public class VtmMapDatabase extends MapDatabase {
 	private static final Logger LOG = Logger.getLogger(VtmMapDatabase.class.getName());
-
-	static final boolean USE_CACHE = false;
-
 
 
 	// 'open' state
@@ -79,7 +75,7 @@ public class VtmMapDatabase extends MapDatabase {
 
 	@Override
 	public MapFileInfo getMapFileInfo() {
-		return MapInfo.info;
+		return null;
 	}
 
 	TileDecoder mTileDecoder;
