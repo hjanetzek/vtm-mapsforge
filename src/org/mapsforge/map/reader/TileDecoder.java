@@ -82,6 +82,8 @@ public class TileDecoder extends ProtobufDecoder {
 		mWays = new ArrayList<Way>();
 		mPois = new ArrayList<PointOfInterest>();
 
+		System.out.println(tile + " bytes:" + contentLength);
+
 		setInputStream(is, contentLength);
 		mTile = tile;
 
@@ -166,7 +168,6 @@ public class TileDecoder extends ProtobufDecoder {
 			}
 		}
 
-		System.out.println(tile + " " + mWays.size());
 		mMapReadResultBuilder
 		        .add(new PoiWayBundle(mPois, mWays));
 
