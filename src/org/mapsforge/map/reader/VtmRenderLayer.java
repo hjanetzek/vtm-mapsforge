@@ -60,15 +60,15 @@ public class VtmRenderLayer extends TileLayer<RendererJob> {
 		this.mapDatabase = new VtmMapDatabase();
 		DatabaseRenderer databaseRenderer = new DatabaseRenderer(this.mapDatabase, graphicFactory);
 
-		this.mapWorker = new MapWorker(tileCache, this.jobQueue, databaseRenderer, layerManager);
+		this.mapWorker = new MapWorker(tileCache, this.jobQueue, databaseRenderer, this);
 		this.mapWorker.start();
 
 		this.textScale = 1;
 	}
 
 	@Override
-	public void destroy() {
-		super.destroy();
+	public void onDestroy() {
+		super.onDestroy();
 	}
 
 	public File getMapFile() {
@@ -85,7 +85,7 @@ public class VtmRenderLayer extends TileLayer<RendererJob> {
 
 	public void open() {
 		HashMap<String, String> options = new HashMap<String, String>();
-		options.put("url", "http://city.informatik.uni-bremen.de/osci/testing/");
+		options.put("url", "http://opensciencemap.org/tiles/vtm/");
 		this.mapDatabase.open(options);
 	}
 
